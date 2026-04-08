@@ -322,6 +322,19 @@ export const decryptMessage = async (encryptedDataString, key) => {
 ❌ **No Forward Secrecy:** Room password is reused (not a perfect forward secrecy protocol)  
 ❌ **No Key Exchange:** Users must share password out-of-band  
 
+### 📚 Applied Cryptography Course Modules
+
+This project practically implements several concepts outlined in standard cryptography coursework, specifically:
+
+- **Module 3: Symmetric Cryptography Models**
+  - Uses **Block Symmetric encryption algorithms (AES)**.
+  - Implements secure **Modes of implementation of symmetric ciphers** using **AES-GCM** (Galois/Counter Mode) for encrypting chat data before sending to Firestore.
+- **Module 4: Message Authentication**
+  - Implements **Password hashing** and utilizes **Hash Algorithms (SHA-256)** via **PBKDF2** to securely derive encryption keys from user passwords and room names (salts).
+  - Relies on the AES-GCM built-in authentication tag to guarantee message integrity against tampering.
+- **Module 5 & 6: Asymmetric Key Cryptography / Public Key Encryption**
+  - Implicitly utilized via **Firebase Authentication (Google OAuth)**, which relies on public key cryptography (such as RSA/ECDSA based digital signatures) for secure user identity verification and JWT access token management.
+
 ---
 
 ## 🔥 Firebase Integration
